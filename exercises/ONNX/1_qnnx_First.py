@@ -48,4 +48,10 @@ session = ort.InferenceSession("resnet18.onnx")
 input_numpy = input_tensor.numpy()
 
 # 7. Run ONNX inferance
+# Compare:
+#   - PyTorch:
+#     - output = model(input_tensor)
+#   - ONNX:
+#     - outputs = session.run(None, {"input": input_numpy})
+# Same idea with different syntax
 onnx_output = session.run(None, {"input": input_numpy})
